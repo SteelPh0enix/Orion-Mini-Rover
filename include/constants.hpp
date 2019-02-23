@@ -21,6 +21,8 @@ constexpr const char* ArmCramp{"ACRP"};
 }  // namespace JsonConstant
 
 namespace RF24Constant {
-constexpr unsigned char radio_address[5]{0x00, 0xEF, 0xBE, 0xAD, 0xDE};
-constexpr unsigned char rover_address[5]{0xFF, 0xEF, 0xBE, 0xAD, 0xDE};
+constexpr unsigned char RadioAddress[6]{"AROVR"};
+constexpr unsigned char RoverAddress[6]{"ZROVR"};
+constexpr unsigned PayloadSize{32};
+constexpr unsigned MessageMaxDelay{5};
 }  // namespace RF24Constant

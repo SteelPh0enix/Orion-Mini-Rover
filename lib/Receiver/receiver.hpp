@@ -6,12 +6,12 @@
   Class used to communicate with rover
 */
 
-class Communicator {
+class Receiver {
  public:
   void initialize();
   bool initialized() const;
 
-  void send_data(char const* data, unsigned length);
+  void read_data(char* data);
 
   void print_debug_data();
 

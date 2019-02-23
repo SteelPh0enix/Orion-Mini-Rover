@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#include <constants.hpp>
+#include <receiver.hpp>
+
+Receiver comms;
+char buffer[200];
 
 void setup() {
-  // put your setup code here, to run once:
+  comms.initialize();
+  Serial.begin(128000);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  comms.read_data(buffer);
+  if (strlen(buffer) > 0) Serial.println(buffer);
 }
