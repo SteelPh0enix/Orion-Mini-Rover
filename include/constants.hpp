@@ -1,8 +1,7 @@
 // Various constants used in program, shared with rover
 #pragma once
 
-// Debug macros
-// #define DEBUG_JSON_PARSING
+enum class Direction : int { None = -1, Forward = 0, Backward = 1 };
 
 // Namespace for serial port constants
 namespace SerialConstant {
@@ -12,12 +11,13 @@ constexpr unsigned long BaudRate{128000};
 
 // Namespace for JSON constants
 namespace JsonConstant {
-constexpr const char* Speed{"SPD"};
-constexpr const char* Turning{"TRN"};
-constexpr const char* ArmRotation{"AROT"};
-constexpr const char* ArmElbow{"AELB"};
-constexpr const char* ArmGrasper{"AGRP"};
-constexpr const char* ArmCramp{"ACRP"};
+constexpr char const* Speed{"CSPD"};
+constexpr char const* Turning{"CTRN"};
+constexpr char const* ArmTurntable{"ATRN"};
+constexpr char const* ArmShoulder{"ASHL"};
+constexpr char const* ArmForearm{"AFRA"};
+constexpr char const* ArmWrist{"AWRS"};
+constexpr char const* ArmCramp{"ACRP"};
 }  // namespace JsonConstant
 
 namespace RF24Constant {

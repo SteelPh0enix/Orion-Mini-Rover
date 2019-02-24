@@ -17,5 +17,5 @@ class Receiver {
 
  private:
   bool m_initialized{false};
-  RF24 m_radio{Pin::RF24_ENABLE, Pin::RF24_SELECT};
+  RF24 m_radio{Pin::RF24Enable, Pin::RF24Select};
 };
