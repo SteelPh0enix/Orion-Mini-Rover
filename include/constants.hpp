@@ -1,5 +1,6 @@
 // Various constants used in program, shared with rover
 #pragma once
+#include <utils.hpp>
 
 enum class Direction : int { None = -1, Forward = 0, Backward = 1 };
 
