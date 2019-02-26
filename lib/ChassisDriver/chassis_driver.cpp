@@ -34,15 +34,25 @@ void ChassisDriver::set_speed(int left_speed, int right_speed) {
 }
 
 void ChassisDriver::set_left_speed(int speed) {
+  if (!initialized()) return;
+
+  speed = constrain(speed, -PWM_MAX_VALUE, PWM_MAX_VALUE);
+  m_left_speed = speed;
+
   digitalWrite(m_left_dir_pin, speed < 0);
   if (speed < 0) speed *= -1;
-  analogWrite(m_left_pwm, constrain(speed, 0, PWM_MAX_VALUE));
+  analogWrite(m_left_pwm, speed);
 }
 
 void ChassisDriver::set_right_speed(int speed) {
+  if (!initialized()) return;
+
+  speed = constrain(speed, -PWM_MAX_VALUE, PWM_MAX_VALUE);
+  m_right_speed = speed;
+
   digitalWrite(m_right_dir_pin, speed < 0);
   if (speed < 0) speed *= -1;
-  analogWrite(m_right_pwm, constrain(speed, 0, PWM_MAX_VALUE));
+  analogWrite(m_right_pwm, speed);
 }
 
 ChassisDriver::Speed ChassisDriver::speed() const {
