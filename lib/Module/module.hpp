@@ -7,8 +7,8 @@
 class ArduinoModule {
  public:
   // Change it if you'll use the modules with different ADC resolution
-  constexpr static unsigned ADC_RESOLUTION_VALUE{1024};
-  constexpr static unsigned PWM_MAX_VALUE{255};
+  constexpr static int ADC_RESOLUTION_VALUE{1024};
+  constexpr static int PWM_MAX_VALUE{255};
 
   virtual bool initialize() = 0;
 

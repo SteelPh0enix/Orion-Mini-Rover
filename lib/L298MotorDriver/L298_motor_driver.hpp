@@ -1,5 +1,5 @@
 #pragma once
-#include "../Module/module.hpp"
+#include <module.hpp>
 
 class L298MotorDriver : public ArduinoModule {
  public:
@@ -19,10 +19,19 @@ class L298MotorDriver : public ArduinoModule {
   // 1 - right, 0 - left
   bool direction() const;
 
+  void set_max_speed(int speed);
+  void set_min_speed(int speed);
+
+  int max_speed() const;
+  int min_speed() const;
+
  private:
   unsigned m_dir_left{};
   unsigned m_dir_right{};
   unsigned m_pwm{};
 
   unsigned m_speed{};
+
+  int m_max_speed{PWM_MAX_VALUE};
+  int m_min_speed{-PWM_MAX_VALUE};
 };

@@ -39,7 +39,7 @@ void L298MotorDriver::set_direction(bool direction) {
 void L298MotorDriver::set_speed(int speed) {
   if (!initialized()) return;
 
-  speed = constrain(speed, -PWM_MAX_VALUE, PWM_MAX_VALUE);
+  speed = map(speed, m_min_speed, m_max_speed, -PWM_MAX_VALUE, PWM_MAX_VALUE);
   m_speed = speed;
 
   set_direction(direction());
@@ -55,3 +55,11 @@ void L298MotorDriver::reverse_direction() {
 
 int L298MotorDriver::speed() const { return m_speed; }
 bool L298MotorDriver::direction() const { return m_speed > 0; }
+
+void L298MotorDriver::set_max_speed(int speed) { m_max_speed = speed; }
+
+void L298MotorDriver::set_min_speed(int speed) { m_min_speed = speed; }
+
+int L298MotorDriver::max_speed() const { return m_max_speed; }
+
+int L298MotorDriver::min_speed() const { return m_min_speed; }

@@ -11,7 +11,7 @@ class Receiver {
   void initialize();
   bool initialized() const;
 
-  void read_data(char* data);
+  bool read_data(char* data, unsigned timeout);
 
   void print_debug_data();
 

@@ -20,8 +20,10 @@ void Receiver::initialize() {
 
 bool Receiver::initialized() const { return m_initialized; }
 
-void Receiver::read_data(char* data) {
-  if (!initialized()) return;
+bool Receiver::read_data(char* data, unsigned timeout) {
+  if (!initialized()) return false;
+
+  unsigned request_time{0};
 
   unsigned buffer_position{0};
   char buffer[RF24Constant::PayloadSize + 1]{};
@@ -43,8 +45,14 @@ void Receiver::read_data(char* data) {
     } else {
       // Or wait for it
       delay(RF24Constant::MessageMaxDelay);
+      request_time += RF24Constant::MessageMaxDelay;
+      if (request_time >= timeout) {
+        return false;
+      }
     }
   }
+
+  return true;
 }
 
 void Receiver::print_debug_data() { m_radio.printDetails(); }

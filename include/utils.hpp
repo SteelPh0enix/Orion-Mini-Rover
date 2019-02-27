@@ -11,7 +11,7 @@ constexpr int pow(int a) {
 }
 
 template <>
-constexpr int pow<0>(int a) {
+constexpr int pow<0>(int) {
   return 1u;
 }
 
@@ -19,4 +19,5 @@ template <>
 constexpr int pow<1>(int a) {
   return a;
 }
+
 }  // namespace Utility

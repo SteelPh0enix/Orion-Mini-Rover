@@ -1,8 +1,13 @@
 // Various constants used in program, shared with rover
 #pragma once
-#include <utils.hpp>
+#include "utils.hpp"
 
 enum class Direction : int { None = -1, Forward = 0, Backward = 1 };
+
+namespace RoverConstants {
+constexpr unsigned BufferSize{128};
+constexpr int DeadZone{10};
+}  // namespace RoverConstants
 
 // Namespace for serial port constants
 namespace SerialConstant {
@@ -26,4 +31,5 @@ constexpr unsigned char RadioAddress[6]{"AROVR"};
 constexpr unsigned char RoverAddress[6]{"ZROVR"};
 constexpr unsigned PayloadSize{32};
 constexpr unsigned MessageMaxDelay{5};
+constexpr unsigned Timeout{250};
 }  // namespace RF24Constant
