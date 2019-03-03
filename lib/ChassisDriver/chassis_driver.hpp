@@ -25,12 +25,6 @@ class ChassisDriver : public ArduinoModule {
   int left_speed() const;
   int right_speed() const;
 
-  void set_max_speed(int speed);
-  void set_min_speed(int speed);
-
-  int max_speed() const;
-  int min_speed() const;
-
  private:
   unsigned m_left_dir_pin{};
   unsigned m_right_dir_pin{};
@@ -39,7 +33,4 @@ class ChassisDriver : public ArduinoModule {
 
   int m_left_speed{};
   int m_right_speed{};
-
-  int m_max_speed{PWM_MAX_VALUE};
-  int m_min_speed{-PWM_MAX_VALUE};
 };

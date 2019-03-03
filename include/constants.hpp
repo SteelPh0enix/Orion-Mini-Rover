@@ -32,4 +32,5 @@ constexpr unsigned char RoverAddress[6]{"ZROVR"};
 constexpr unsigned PayloadSize{32};
 constexpr unsigned MessageMaxDelay{5};
 constexpr unsigned Timeout{250};
+constexpr unsigned Channel{100};
 }  // namespace RF24Constant

@@ -7,8 +7,8 @@
 namespace Pin {
 namespace Chassis {
 namespace Direction {
-constexpr unsigned Right{40};
-constexpr unsigned Left{41};
+constexpr unsigned Right{41};
+constexpr unsigned Left{40};
 }  // namespace Direction
 
 namespace PWM {

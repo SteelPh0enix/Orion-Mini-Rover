@@ -23,6 +23,7 @@ class OrionMini {
   void set_arm_motor_speed(Arm motor, int speed);
 
  private:
+  constexpr static double PivotLimit{35.};
   bool m_initialized{false};
 
   ChassisDriver m_chassis{};
