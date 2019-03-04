@@ -30,8 +30,8 @@ class L298MotorDriver : public ArduinoModule {
   unsigned m_dir_right{};
   unsigned m_pwm{};
 
-  unsigned m_speed{};
+  int m_speed{};
 
-  int m_max_speed{PWM_MAX_VALUE};
-  int m_min_speed{-PWM_MAX_VALUE};
+  int m_max_speed{180};
+  int m_min_speed{-180};
 };

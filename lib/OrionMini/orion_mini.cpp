@@ -63,7 +63,7 @@ void OrionMini::set_driving_speed(int speed, int rotation) {
     // Serial.print(left_wheels_speed);
     // Serial.print("): ");
     // Serial.println(cos((angle - (M_PI / 2.)) * 2.));
-  } else if (angle > 0) {
+  } else if (angle >= 0) {
     // I ćwiartka
     right_wheels_speed *= -cos(angle * 2.);  // OK
     // Serial.print("I (R = ");
@@ -95,10 +95,10 @@ void OrionMini::set_driving_speed(int speed, int rotation) {
   // Serial.print(", angle: ");
   // Serial.println(angle);
   // Serial.println(M_PI / 2.);
-  Serial.print("L: ");
-  Serial.print(left_wheels_speed);
-  Serial.print(", R: ");
-  Serial.println(right_wheels_speed);
+  // Serial.print(", L: ");
+  // Serial.print(left_wheels_speed);
+  // Serial.print(", R: ");
+  // Serial.println(right_wheels_speed);
 
   m_chassis.set_speed(left_wheels_speed, right_wheels_speed);
 }

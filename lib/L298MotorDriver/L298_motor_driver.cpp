@@ -39,7 +39,8 @@ void L298MotorDriver::set_direction(bool direction) {
 void L298MotorDriver::set_speed(int speed) {
   if (!initialized()) return;
 
-  speed = map(speed, m_min_speed, m_max_speed, -PWM_MAX_VALUE, PWM_MAX_VALUE);
+  speed = map(speed, m_min_speed, m_max_speed, -PWM_MAX_VALUE + 5,
+              PWM_MAX_VALUE - 5);
   m_speed = speed;
 
   set_direction(direction());

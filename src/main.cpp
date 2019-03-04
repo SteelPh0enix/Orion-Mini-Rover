@@ -31,9 +31,26 @@ void loop() {
                    rotation < RoverConstants::DeadZone
                ? 0
                : rotation));
+
+      auto turntable_speed = json.get<int>(JsonConstant::ArmTurntable);
+      auto shoulder_speed = json.get<int>(JsonConstant::ArmShoulder);
+      auto forearm_speed = json.get<int>(JsonConstant::ArmForearm);
+      auto wrist_speed = json.get<int>(JsonConstant::ArmWrist);
+      auto cramp_speed = json.get<int>(JsonConstant::ArmCramp);
+
+      orion.set_arm_motor_speed(OrionMini::Arm::Turntable, turntable_speed);
+      orion.set_arm_motor_speed(OrionMini::Arm::Shoulder, shoulder_speed);
+      // orion.set_arm_motor_speed(OrionMini::Arm::Forearm, forearm_speed);
+      // orion.set_arm_motor_speed(OrionMini::Arm::Wrist, wrist_speed);
+      // orion.set_arm_motor_speed(OrionMini::Arm::Cramp, cramp_speed);
     }
     m_buffer.clear();
   } else {
     orion.set_driving_speed(0, 0);
+    orion.set_arm_motor_speed(OrionMini::Arm::Turntable, 0);
+    orion.set_arm_motor_speed(OrionMini::Arm::Shoulder, 0);
+    orion.set_arm_motor_speed(OrionMini::Arm::Forearm, 0);
+    orion.set_arm_motor_speed(OrionMini::Arm::Wrist, 0);
+    orion.set_arm_motor_speed(OrionMini::Arm::Cramp, 0);
   }
 }
